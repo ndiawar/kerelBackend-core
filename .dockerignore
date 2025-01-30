@@ -1,0 +1,62 @@
+# .dockerignore pour backend-core
+
+### Fichiers système ###
+.DS_Store
+*.swp
+*.swo
+
+### Versioning ###
+.git/
+.gitignore
+.gitattributes
+
+### Environnement ###
+.env
+.env.*.local
+.env.local
+.env.testing
+.env.backup
+
+### Docker ###
+docker-compose*
+Dockerfile*
+.dockerignore
+
+### Dépendances ###
+vendor/
+node_modules/
+
+### Stockage & logs ###
+storage/logs/*
+storage/framework/cache/*
+storage/framework/views/*
+storage/framework/sessions/*
+storage/app/public/*
+bootstrap/cache/*
+
+### Tests ###
+.phpunit.result.cache
+phpunit.xml
+tests/
+
+### IDE ###
+.idea/
+.vscode/
+.php_cs
+.php_cs.cache
+
+### Frontend ###
+public/js/
+public/css/
+public/mix-manifest.json
+public/hot
+
+### Configuration locale ###
+Homestead.json
+Homestead.yaml
+docker-compose.override.yml
+
+### Fichiers de build ###
+composer.phar
+yarn.lock
+package-lock.json
