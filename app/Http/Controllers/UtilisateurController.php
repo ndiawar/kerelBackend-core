@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class Utilisateur extends Controller
+class UtilisateurController extends Controller
 {
     // Afficher la liste des utilisateurs
     public function index()

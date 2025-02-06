@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email')->unique()->nullable();     // Email unique et optionnel
             $table->enum('status', ['active', 'inactive'])->default('active'); // Statut par défaut "active"
             $table->enum('role', ['superadmin', 'user'])->default('user');     // Rôle par défaut "user"
-            $table->string('code')->unique(); // Code généré automatiquement
+            $table->string('code', 4)->unique(); // Code à 4 caractères généré automatiquement
             $table->timestamps();
         });
     }
