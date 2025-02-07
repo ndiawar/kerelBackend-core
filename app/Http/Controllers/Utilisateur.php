@@ -69,7 +69,7 @@ class Utilisateur extends Controller
                 'prenom' => 'sometimes|required|string|max:255',
                 'telephone' => 'sometimes|required|string|max:20',
                 'email' => 'nullable|email|max:255',
-                'status' => 'required|string|in:active,inactive',
+                'status' => 'string|in:active,inactive',
                 'role' => 'sometimes|required|string|in:superadmin,user',
                 'rfid_code' => 'nullable|string|max:50',
             ]);
@@ -158,11 +158,7 @@ class Utilisateur extends Controller
      // Bloquer un utilisateur
      public function bloquer(Request $request)
      {
-         $validatedData = $request->validate([
-             'telephone' => 'required|string|max:20',
-         ]);
- 
-         $user = User::where('telephone', $validatedData['telephone'])->first();
+        $user = User::find($id);
  
          if ($user) {
              $user->status = 'inactive';
@@ -176,11 +172,7 @@ class Utilisateur extends Controller
      // Débloquer un utilisateur
     public function debloquer(Request $request)
     {
-        $validatedData = $request->validate([
-            'telephone' => 'required|string|max:20',
-        ]);
-
-        $user = User::where('telephone', $validatedData['telephone'])->first();
+        $user = User::find($id);
 
         if ($user) {
             $user->status = 'active';
