@@ -19,7 +19,12 @@ Route::delete('/utilisateurs/{id}', [UtilisateurController::class, 'destroy']);
 // Routes pour login et logout
 Route::post('/utilisateurs/login', [UtilisateurController::class, 'loginByCode']);
 Route::post('/utilisateurs/logout', [UtilisateurController::class, 'logout']);
+Route::post('/utilisateurs/loginByCard', [UtilisateurController::class, 'loginByCard']);
 
 // Routes pour bloquer et débloquer un utilisateur
-Route::put('/utilisateurs/bloquer', [UtilisateurController::class, 'bloquer']);
-Route::put('/utilisateurs/debloquer', [UtilisateurController::class, 'debloquer']);
+Route::put('/utilisateurs/bloquer/{id}', [UtilisateurController::class, 'bloquer']);
+Route::put('/utilisateurs/debloquer/{id}', [UtilisateurController::class, 'debloquer']);
+
+// Routes pour assigner et désassigner un code RFID
+Route::put('/utilisateurs/assign/{id}', [UtilisateurController::class, 'assign']);
+Route::put('/utilisateurs/desassign/{id}', [UtilisateurController::class, 'desassign']);
