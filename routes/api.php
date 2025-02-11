@@ -22,7 +22,6 @@ Route::middleware('api.log')->group(function() {
 
     // Routes pour login et logout
     
-    Route::post('/utilisateurs/logout', [UtilisateurController::class, 'logout']);
 
     // Routes pour bloquer et débloquer un utilisateur
     Route::put('/utilisateurs/bloquer/{id}', [UtilisateurController::class, 'bloquer']);
@@ -39,3 +38,4 @@ Route::post('/utilisateurs/loginByCard', [UtilisateurController::class, 'loginBy
 Route::get('/user', [UtilisateurController::class, 'getAuthenticatedUser']);
 // Route pour récupérer un utilisateur
 Route::get('/utilisateurs/{id}', [UtilisateurController::class, 'show']);
+Route::post('/utilisateurs/logout', [UtilisateurController::class, 'logout']);
