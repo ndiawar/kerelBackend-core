@@ -7,9 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Configuration\Middleware;
 
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/user/conected', [UtilisateurController::class, 'getAuthenticatedUser']);
 
 // Récupérer les logs
 Route::get('/historique', [HistoriqueController::class, 'getApiLogs']);
