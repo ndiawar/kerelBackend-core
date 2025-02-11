@@ -155,6 +155,19 @@ class UtilisateurController extends Controller
         }
     }
 
+    // Récupérer l'utilisateur authentifié
+    public function getAuthenticatedUser()
+    {
+        try {
+            $user = JWTAuth::parseToken()->authenticate();
+            return response()->json($user);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erreur lors de la récupération de l\'utilisateur'], 500);
+        }
+
+        return response()->json(['user' => $user], 200);
+    }
+
     // Bloquer un utilisateur
 public function bloquer($id, Request $request)
 {

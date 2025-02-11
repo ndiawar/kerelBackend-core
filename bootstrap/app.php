@@ -16,6 +16,11 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'jwt' => JwtMiddleware::class,
         ]);
+
+        $middleware->alias([
+            'api.log' => \App\Http\Middleware\ApiLoggerMiddleware::class,
+        ]);
+
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
